@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oura Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Oura Herzfrequenz &amp; HRV</h1>
+      <p>
+        Gib deinen Oura Personal Access Token ein, um die Daten aus der Oura API zu laden.
+      </p>
+
+      <form id="controls" class="card">
+        <label>
+          Personal Access Token
+          <input id="token" type="password" required placeholder="oura_pat_..." />
+        </label>
+
+        <div class="date-grid">
+          <label>
+            Startdatum
+            <input id="startDate" type="date" required />
+          </label>
+          <label>
+            Enddatum
+            <input id="endDate" type="date" required />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Daten laden</button>
+          <button type="button" id="loadDemo">Demo-Daten laden</button>
+        </div>
+      </form>
+
+      <p id="status" class="status"></p>
+
+      <section class="card">
+        <h2>Herzfrequenz (BPM)</h2>
+        <canvas id="heartRateChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>HRV (ms, Durchschnitt pro Tag)</h2>
+        <canvas id="hrvChart"></canvas>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
